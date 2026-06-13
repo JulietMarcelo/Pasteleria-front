@@ -1,0 +1,25 @@
+:root {
+  color-scheme: light;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #49313d;
+  background: #fff7fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #fff7fb;
+}
+
+button,
+a {
+  font: inherit;
+}

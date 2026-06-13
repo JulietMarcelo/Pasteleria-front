@@ -1,0 +1,185 @@
+<main class="landing">
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Ir al inicio">
+      <img class="brand__mark" src="assets/logo-circular-pasteles-reyes.jpg" alt="">
+      <span>
+        Pasteles Reyes
+        <small>by Mirna Marcelo</small>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Navegacion principal">
+      <a href="#pasteles">Inicio</a>
+      <a href="#catalogo">Catalogo</a>
+      <a href="#menu">Menu</a>
+      <a href="#ubicacion">Ubicacion</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="hero__content">
+      <img class="hero__logo" src="assets/logo-horizontal-pasteles-reyes.jpg" alt="Pasteles Reyes by Mirna Marcelo">
+      <p class="eyebrow">Pasteleria artesanal desde 2012</p>
+      <h1>Conquista y evoluciona tus sentidos</h1>
+      <p class="hero__copy">
+        Pasteles Reyes by Mirna Marcelo crea pasteles, postres y experiencias dulces
+        en Ciudad Altamirano con el sello de la Chef Mirna Marcelo Reyes.
+      </p>
+
+      <div class="hero__actions">
+        <a class="button button--primary" href="tel:+527676719000">Llamar a Pasteles Reyes</a>
+        <a class="button button--ghost" href="#catalogo">Ver catalogo</a>
+      </div>
+    </div>
+
+    <section class="slider" id="pasteles" aria-label="Fotografias de pasteles">
+      <button class="slider__control slider__control--left" type="button" (click)="previousSlide()" aria-label="Foto anterior">
+        ‹
+      </button>
+
+      <article class="slide" *ngFor="let cake of cakes; let i = index" [class.slide--active]="i === currentSlide">
+        <img [src]="cake.imageUrl" [alt]="cake.title">
+        <div class="slide__caption">
+          <h2>{{ cake.title }}</h2>
+          <p>{{ cake.description }}</p>
+        </div>
+      </article>
+
+      <button class="slider__control slider__control--right" type="button" (click)="nextSlide()" aria-label="Foto siguiente">
+        ›
+      </button>
+
+      <div class="slider__dots" aria-label="Seleccionar fotografia">
+        <button
+          *ngFor="let cake of cakes; let i = index"
+          type="button"
+          [class.slider__dot--active]="i === currentSlide"
+          (click)="goToSlide(i)"
+          [attr.aria-label]="'Ver ' + cake.title">
+        </button>
+      </div>
+    </section>
+  </section>
+
+  <section class="products" aria-label="Servicios destacados">
+    <div class="section-heading">
+      <p class="eyebrow">Especialidades</p>
+      <h2>Pasteles listos, pedidos especiales y detalles para celebrar</h2>
+    </div>
+
+    <div class="product-grid">
+      <article class="product-card" *ngFor="let product of featuredProducts">
+        <span></span>
+        <h3>{{ product }}</h3>
+        <p>Preparado con atencion al detalle, sabor casero y presentacion elegante.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="showcase" id="catalogo">
+    <div class="showcase__intro">
+      <p class="eyebrow">Pasteleria principal</p>
+      <h2>Pasteles de vitrina para llevar al momento</h2>
+      <p>
+        Si visitas Pasteles Reyes, puedes encontrar pasteles de vitrina en sabores
+        clasicos como Tres leches, Chocolate y Moka. Son disenos genericos con fruta
+        y pueden llevar una felicitacion escrita con chantilly.
+      </p>
+      <div class="flavor-list" aria-label="Sabores de vitrina">
+        <span *ngFor="let flavor of displayCakes">{{ flavor }}</span>
+      </div>
+    </div>
+
+    <article class="extras-card">
+      <h3>Tambien encuentras</h3>
+      <ul>
+        <li *ngFor="let extra of storeExtras">{{ extra }}</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="catalog">
+    <div class="section-heading">
+      <p class="eyebrow">Pedidos personalizados</p>
+      <h2>Catalogo para encargar tu pastel</h2>
+      <p>Elige el bizcocho y relleno base. Para sabores especiales, pregunta disponibilidad al cotizar.</p>
+    </div>
+
+    <div class="catalog-grid">
+      <article class="catalog-card" *ngFor="let group of cakeCatalog">
+        <h3>{{ group.title }}</h3>
+        <p>{{ group.description }}</p>
+        <div class="chip-list">
+          <span *ngFor="let item of group.items">{{ item }}</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="order-info">
+      <h3>Anticipacion de pedidos</h3>
+      <ul>
+        <li *ngFor="let note of orderNotes">{{ note }}</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="section-heading">
+      <p class="eyebrow">Cafe de Reyes</p>
+      <h2>Menu destacado</h2>
+      <p>Consulta rapido algunas opciones de cafeteria, postres, desayunos y snacks.</p>
+    </div>
+
+    <div class="menu-grid">
+      <article class="menu-card" *ngFor="let category of menuCategories">
+        <h3>{{ category.title }}</h3>
+        <ul>
+          <li *ngFor="let item of category.items">
+            <div>
+              <strong>{{ item.name }}</strong>
+              <span *ngIf="item.detail">{{ item.detail }}</span>
+            </div>
+            <b>{{ item.price }}</b>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="info-band" id="ubicacion">
+    <div class="location-intro">
+      <p class="eyebrow">Encuentranos</p>
+      <h2>Dos espacios en Ciudad Altamirano</h2>
+      <p>Visitanos en la pasteleria principal o disfruta Cafe de Reyes en la zona Vicente Guerrero.</p>
+    </div>
+
+    <div class="location-grid">
+      <article class="location-card" *ngFor="let location of locations">
+        <p class="location-card__type">{{ location.type }}</p>
+        <h3>{{ location.name }}</h3>
+        <address>{{ location.address }}</address>
+        <ul>
+          <li *ngFor="let schedule of location.schedule">{{ schedule }}</li>
+        </ul>
+        <div class="location-card__actions">
+          <a [href]="'tel:' + location.phoneHref">{{ location.phone }}</a>
+          <a [href]="location.mapUrl" target="_blank" rel="noreferrer">Abrir mapa</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="contact" id="contacto">
+    <div>
+      <p class="eyebrow">Pedidos y cotizaciones</p>
+      <h2>Haz tu pedido con Mirna Marcelo</h2>
+      <p>Cuentanos la fecha, el sabor y la idea de decoracion. Te ayudamos a elegir el tamano ideal.</p>
+    </div>
+
+    <div class="contact__phones">
+      <a class="contact__phone" href="tel:+527676719000">(767) 671 9000</a>
+      <a class="contact__phone contact__phone--light" href="tel:+527676882553">(767) 688 2553</a>
+    </div>
+  </section>
+</main>
