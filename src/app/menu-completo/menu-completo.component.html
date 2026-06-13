@@ -1,0 +1,46 @@
+<main class="landing">
+  <header class="topbar">
+    <a class="brand" routerLink="/" aria-label="Ir al inicio">
+      <img class="brand__mark" src="assets/logo-circular-pasteles-reyes.jpg" alt="">
+      <span>
+        Pasteles Reyes
+        <small>by Mirna Marcelo</small>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Navegación principal">
+      <a routerLink="/">Inicio</a>
+      <a routerLink="/" fragment="catalogo">Catálogo</a>
+      <a routerLink="/" fragment="menu">Menú</a>
+      <a routerLink="/" fragment="ubicacion">Ubicación</a>
+      <a routerLink="/" fragment="contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="menu" id="menu-completo">
+    <div class="section-heading">
+      <p class="eyebrow">Café de Reyes</p>
+      <h2>Menú completo</h2>
+      <p>Encuentra todas las opciones disponibles en cafetería, postres y snacks.</p>
+    </div>
+
+    <div class="menu-grid menu-grid--full">
+      <article class="menu-card" *ngFor="let category of menuCategories">
+        <h3>{{ category.title }}</h3>
+        <ul>
+          <li *ngFor="let item of category.items">
+            <div>
+              <strong>{{ item.name }}</strong>
+              <span *ngIf="item.detail">{{ item.detail }}</span>
+            </div>
+            <b>{{ item.price }}</b>
+          </li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="menu-actions">
+      <a class="button button--ghost" routerLink="/">Volver al inicio</a>
+    </div>
+  </section>
+</main>
