@@ -8,19 +8,19 @@
       </span>
     </a>
 
-    <nav class="nav" aria-label="Navegacion principal">
+    <nav class="nav" aria-label="Navegación principal">
       <a href="#pasteles">Inicio</a>
-      <a href="#catalogo">Catalogo</a>
-      <a href="#menu">Menu</a>
-      <a href="#ubicacion">Ubicacion</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#menu">Menú</a>
+      <a href="#ubicacion">Ubicación</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
   <section class="hero" id="inicio">
     <div class="hero__content">
-      <img class="hero__logo" src="assets/logo-horizontal-pasteles-reyes.jpg" alt="Pasteles Reyes by Mirna Marcelo">
-      <p class="eyebrow">Pasteleria artesanal desde 2012</p>
+      <img class="hero__logo" src="assets/IMG_6775.PNG" alt="Pasteles Reyes by Mirna Marcelo">
+      <p class="eyebrow">Pastelería artesanal desde 2012</p>
       <h1>Conquista y evoluciona tus sentidos</h1>
       <p class="hero__copy">
         Pasteles Reyes by Mirna Marcelo crea pasteles, postres y experiencias dulces
@@ -29,11 +29,11 @@
 
       <div class="hero__actions">
         <a class="button button--primary" href="tel:+527676719000">Llamar a Pasteles Reyes</a>
-        <a class="button button--ghost" href="#catalogo">Ver catalogo</a>
+        <a class="button button--ghost" href="#catalogo">Ver catálogo</a>
       </div>
     </div>
 
-    <section class="slider" id="pasteles" aria-label="Fotografias de pasteles">
+    <section class="slider" id="pasteles" aria-label="Fotografías de pasteles">
       <button class="slider__control slider__control--left" type="button" (click)="previousSlide()" aria-label="Foto anterior">
         ‹
       </button>
@@ -50,7 +50,7 @@
         ›
       </button>
 
-      <div class="slider__dots" aria-label="Seleccionar fotografia">
+      <div class="slider__dots" aria-label="Seleccionar fotografía">
         <button
           *ngFor="let cake of cakes; let i = index"
           type="button"
@@ -72,19 +72,19 @@
       <article class="product-card" *ngFor="let product of featuredProducts">
         <span></span>
         <h3>{{ product }}</h3>
-        <p>Preparado con atencion al detalle, sabor casero y presentacion elegante.</p>
+        <p>Preparado con atención al detalle, sabor casero y presentación elegante.</p>
       </article>
     </div>
   </section>
 
   <section class="showcase" id="catalogo">
     <div class="showcase__intro">
-      <p class="eyebrow">Pasteleria principal</p>
+      <p class="eyebrow">Pastelería principal</p>
       <h2>Pasteles de vitrina para llevar al momento</h2>
       <p>
         Si visitas Pasteles Reyes, puedes encontrar pasteles de vitrina en sabores
-        clasicos como Tres leches, Chocolate y Moka. Son disenos genericos con fruta
-        y pueden llevar una felicitacion escrita con chantilly.
+        clásicos como Tres leches, Chocolate y Moka. Son diseños genéricos con fruta
+        y pueden llevar una felicitación escrita con chantilly.
       </p>
       <div class="flavor-list" aria-label="Sabores de vitrina">
         <span *ngFor="let flavor of displayCakes">{{ flavor }}</span>
@@ -92,7 +92,7 @@
     </div>
 
     <article class="extras-card">
-      <h3>Tambien encuentras</h3>
+      <h3>También encuentras</h3>
       <ul>
         <li *ngFor="let extra of storeExtras">{{ extra }}</li>
       </ul>
@@ -102,7 +102,7 @@
   <section class="catalog">
     <div class="section-heading">
       <p class="eyebrow">Pedidos personalizados</p>
-      <h2>Catalogo para encargar tu pastel</h2>
+      <h2>Catálogo para encargar tu pastel</h2>
       <p>Elige el bizcocho y relleno base. Para sabores especiales, pregunta disponibilidad al cotizar.</p>
     </div>
 
@@ -117,7 +117,7 @@
     </div>
 
     <div class="order-info">
-      <h3>Anticipacion de pedidos</h3>
+      <h3>Anticipación de pedidos</h3>
       <ul>
         <li *ngFor="let note of orderNotes">{{ note }}</li>
       </ul>
@@ -126,9 +126,9 @@
 
   <section class="menu" id="menu">
     <div class="section-heading">
-      <p class="eyebrow">Cafe de Reyes</p>
-      <h2>Menu destacado</h2>
-      <p>Consulta rapido algunas opciones de cafeteria, postres, desayunos y snacks.</p>
+      <p class="eyebrow">Café de Reyes</p>
+      <h2>Menú destacado</h2>
+      <p>Consulta rápido algunas opciones de cafetería, postres, desayunos y snacks.</p>
     </div>
 
     <div class="menu-grid">
@@ -151,7 +151,7 @@
     <div class="location-intro">
       <p class="eyebrow">Encuentranos</p>
       <h2>Dos espacios en Ciudad Altamirano</h2>
-      <p>Visitanos en la pasteleria principal o disfruta Cafe de Reyes en la zona Vicente Guerrero.</p>
+      <p>Visítanos en la pastelería principal o disfruta Café de Reyes en la zona Vicente Guerrero.</p>
     </div>
 
     <div class="location-grid">
@@ -163,7 +163,8 @@
           <li *ngFor="let schedule of location.schedule">{{ schedule }}</li>
         </ul>
         <div class="location-card__actions">
-          <a [href]="'tel:' + location.phoneHref">{{ location.phone }}</a>
+          <a [href]="'tel:' + location.phoneHref">Llamar</a>
+          <a [href]="location.whatsappHref" target="_blank" rel="noreferrer">WhatsApp</a>
           <a [href]="location.mapUrl" target="_blank" rel="noreferrer">Abrir mapa</a>
         </div>
       </article>
@@ -174,11 +175,12 @@
     <div>
       <p class="eyebrow">Pedidos y cotizaciones</p>
       <h2>Haz tu pedido con Mirna Marcelo</h2>
-      <p>Cuentanos la fecha, el sabor y la idea de decoracion. Te ayudamos a elegir el tamano ideal.</p>
+      <p>Cuéntanos la fecha, el sabor y la idea de decoración. Te ayudamos a elegir el tamaño ideal.</p>
     </div>
 
     <div class="contact__phones">
-      <a class="contact__phone" href="tel:+527676719000">(767) 671 9000</a>
+      <a class="contact__phone" [href]="'tel:' + contactPhone.phoneHref">Llamar a {{ contactPhone.number }}</a>
+      <a class="contact__phone contact__phone--whatsapp" [href]="contactPhone.whatsappHref" target="_blank" rel="noreferrer">Enviar WhatsApp</a>
       <a class="contact__phone contact__phone--light" href="tel:+527676882553">(767) 688 2553</a>
     </div>
   </section>

@@ -14,6 +14,7 @@ interface LocationInfo {
   schedule: string[];
   phone: string;
   phoneHref: string;
+  whatsappHref: string;
   mapUrl: string;
 }
 
@@ -48,8 +49,8 @@ export class AppComponent implements OnDestroy {
       imageUrl: 'assets/IMG_6774.JPG'
     },
     {
-      title: 'Cafe de Reyes',
-      description: 'Crepas, cafes, postres y desayunos para disfrutar en Altamirano.',
+      title: 'Café de Reyes',
+      description: 'Crepas, cafés, postres y desayunos para disfrutar en Altamirano.',
       imageUrl: 'assets/IMG_6772.JPG'
     },
     {
@@ -76,41 +77,49 @@ export class AppComponent implements OnDestroy {
 
   readonly storeExtras = [
     'Postres individuales',
-    'Velas de numero',
+    'Velas de número',
     'Velas de chispa',
-    'Accesorios para celebracion'
+    'Accesorios para celebración'
   ];
 
   readonly locations: LocationInfo[] = [
     {
       name: 'Pasteles Reyes',
-      type: 'Pasteleria principal',
-      address: 'Calle Ejercito Mexicano Poniente #209, Ciudad Altamirano, Mexico, 40666',
-      schedule: ['Lunes a viernes: 8:00 am a 8:00 pm', 'Sabado y domingo: 8:00 am a 6:00 pm'],
+      type: 'Pastelería principal',
+      address: 'Calle Ejército Mexicano Poniente #209, Ciudad Altamirano, México, 40666',
+      schedule: ['Lunes a viernes: 8:00 am a 8:00 pm', 'Sábado y domingo: 8:00 am a 6:00 pm'],
       phone: '(767) 671 9000',
       phoneHref: '+527676719000',
+      whatsappHref: 'https://wa.me/527676719000?text=Hola%20Pasteles%20Reyes%2C%20quiero%20hacer%20un%20pedido.',
       mapUrl: 'https://www.google.com/maps/search/?api=1&query=Calle+Ejercito+Mexicano+Poniente+209+Ciudad+Altamirano+40666'
     },
     {
-      name: 'Cafe de Reyes',
-      type: 'Pasteleria y cafeteria',
-      address: 'De Las Americas, Vicente Guerrero, 40662 Ciudad Altamirano, Gro.',
-      schedule: ['Lunes a sabado: 8:00 am a 6:00 pm', 'Domingo: cerrado'],
+      name: 'Café de Reyes',
+      type: 'Pastelería y cafetería',
+      address: 'De Las Américas, Vicente Guerrero, 40662 Ciudad Altamirano, Gro.',
+      schedule: ['Lunes a sábado: 8:00 am a 6:00 pm', 'Domingo: cerrado'],
       phone: '(767) 688 2553',
       phoneHref: '+527676882553',
-      mapUrl: 'https://www.google.com/maps/search/?api=1&query=De+Las+Americas+Vicente+Guerrero+40662+Ciudad+Altamirano+Gro'
+      whatsappHref: 'https://wa.me/527676882553?text=Hola%20Caf%C3%A9%20de%20Reyes%2C%20quiero%20hacer%20un%20pedido.',
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=De+Las+Am%C3%A9ricas+Vicente+Guerrero+40662+Ciudad+Altamirano+Gro'
     }
   ];
 
+  readonly contactPhone = {
+    number: '(767) 671 9000',
+    phoneHref: '+527676719000',
+    whatsappHref: 'https://wa.me/527676719000?text=Hola%20Pasteles%20Reyes%2C%20quiero%20hacer%20un%20pedido%20y%20solicitar%20informaci%C3%B3n.'
+  };
+
   readonly menuCategories: MenuCategory[] = [
     {
-      title: 'Cafe y bebidas',
+      title: 'Café y bebidas',
       items: [
         { name: 'Americano', price: '$35' },
         { name: 'Capuchino', detail: 'Natural, vainilla francesa, caramelo o crema irlandesa', price: '$48' },
-        { name: 'Cafe de la olla', price: '$25' },
-        { name: 'Cafe frio', price: '$38' },
-        { name: 'Frappes', detail: 'Capuchino, Oreo, Chai, mazapan, moka o cajeta', price: '$75' },
+        { name: 'Café de la olla', price: '$25' },
+        { name: 'Café frío', price: '$38' },
+        { name: 'Frappes', detail: 'Capuchino, Oreo, Chai, mazapán, moka o cajeta', price: '$75' },
         { name: 'Malteadas', detail: 'Vainilla, fresa o chocolate', price: '$75' }
       ]
     },
@@ -119,7 +128,7 @@ export class AppComponent implements OnDestroy {
       items: [
         { name: 'Chocolate', price: '$65' },
         { name: 'Red Velvet', price: '$80' },
-        { name: 'Tiramisu clasico', price: '$95' },
+        { name: 'Tiramisú clásico', price: '$95' },
         { name: 'Tartitas de fruta', price: '$50' },
         { name: 'Brownie con helado', detail: 'Vainilla, fresa o chocolate', price: '$95' },
         { name: 'Fresas con crema', price: '$75' }
@@ -128,7 +137,7 @@ export class AppComponent implements OnDestroy {
     {
       title: 'Desayunos y snacks',
       items: [
-        { name: 'Crepa dulce', detail: 'Nutella, lechera, chocolate, fresa, platano o zarzamora', price: '$85' },
+        { name: 'Crepa dulce', detail: 'Nutella, lechera, chocolate, fresa, plátano o zarzamora', price: '$85' },
         { name: 'Hot Cakes', detail: 'Con toppings a elegir', price: '$95' },
         { name: 'Chilaquiles solos', detail: 'Con huevo estrellado, cecina o pechuga', price: '$60 / $120' },
         { name: 'Huevos al gusto', detail: 'Con frijolitos, totopos y salsa casera', price: '$78' },
@@ -146,20 +155,20 @@ export class AppComponent implements OnDestroy {
     },
     {
       title: 'Rellenos tradicionales',
-      description: 'Opciones clasicas disponibles para la mayoria de pedidos.',
+      description: 'Opciones clásicas disponibles para la mayoría de pedidos.',
       items: ['Fresa', 'Durazno', 'Chocolate']
     },
     {
       title: 'Rellenos por disponibilidad',
-      description: 'Consultar al cotizar porque dependen de temporada o produccion.',
+      description: 'Consultar al cotizar porque dependen de temporada o producción.',
       items: ['Frutos rojos', 'Crema pastelera', 'Cajeta']
     }
   ];
 
   readonly orderNotes = [
-    'Pedidos pequenos: solicitar con minimo 1 a 2 dias de anticipacion.',
-    'Bodas, XV anos y eventos grandes: solicitar con 1 a 2 semanas de anticipacion.',
-    'Eventos grandes requieren cita en pasteleria para definir sabores, tamano, colores, pisos y detalles.'
+    'Pedidos pequeños: solicitar con mínimo 1 a 2 días de anticipación.',
+    'Bodas, XV años y eventos grandes: solicitar con 1 a 2 semanas de anticipación.',
+    'Eventos grandes requieren cita en pastelería para definir sabores, tamaño, colores, pisos y detalles.'
   ];
 
   private readonly slideTimer = window.setInterval(() => this.nextSlide(), 5000);
