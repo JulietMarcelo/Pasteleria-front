@@ -24,16 +24,28 @@
       <p>Encuentra todas las opciones disponibles en cafetería, postres y snacks.</p>
     </div>
 
+    <div class="menu-intro">
+      <p class="menu-intro__text">
+        Navega con calma entre nuestras tres secciones principales. Cada categoría está pensada para ayudarte a elegir sin saturarte: café, postres y desayunos.
+      </p>
+    </div>
+
     <div class="menu-grid menu-grid--full">
       <article class="menu-card" *ngFor="let category of menuCategories">
         <h3>{{ category.title }}</h3>
         <ul>
           <li *ngFor="let item of category.items">
-            <div>
+            <div class="menu-item-content">
               <strong>{{ item.name }}</strong>
-              <span *ngIf="item.detail">{{ item.detail }}</span>
+              <span *ngIf="item.description" class="menu-item-description">{{ item.description }}</span>
+              <div *ngIf="item.options" class="menu-item-options">
+                <span class="menu-item-options-label">Elige:</span>
+                <div class="menu-item-options-list">
+                  <span *ngFor="let option of item.options" class="menu-option">{{ option }}</span>
+                </div>
+              </div>
             </div>
-            <b>{{ item.price }}</b>
+            <b class="menu-item-price">{{ item.price }}</b>
           </li>
         </ul>
       </article>

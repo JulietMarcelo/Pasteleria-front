@@ -420,7 +420,7 @@ h3 {
   color: #ffffff;
   background:
     linear-gradient(rgba(26, 17, 21, 0.88), rgba(26, 17, 21, 0.92)),
-    url('/assets/logo-horizontal-pasteles-reyes.jpg') center / cover;
+    url('/assets/IMG_6777.JPG') center / cover;
 }
 
 .menu .section-heading h2,
@@ -464,6 +464,7 @@ h3 {
   display: flex;
   gap: 16px;
   justify-content: space-between;
+  align-items: flex-start;
   padding: 14px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.13);
 }
@@ -487,6 +488,175 @@ h3 {
 .menu-card b {
   flex: 0 0 auto;
   color: var(--rose);
+}
+
+.menu-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.menu-item-description {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  font-weight: 400;
+  margin-top: 0 !important;
+}
+
+.menu-item-options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.menu-item-options-label {
+  color: var(--rose);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.menu-item-options-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.menu-option {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(231, 161, 170, 0.14);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.85rem;
+  border: 1px solid rgba(231, 161, 170, 0.24);
+}
+
+.menu-item-price {
+  color: var(--rose);
+  font-weight: 800;
+}
+
+#menu-completo .menu-intro {
+  max-width: 760px;
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+#menu-completo .menu-grid--full {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+#menu-completo .menu-card {
+  padding: 30px 28px;
+  background: rgba(255, 248, 248, 0.12);
+  min-height: auto;
+}
+
+#menu-completo .menu-card h3 {
+  margin-bottom: 24px;
+}
+
+#menu-completo .menu-card li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#menu-completo .menu-card li:last-child {
+  border-bottom: 0;
+}
+
+.menu-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.menu-item-content strong {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.menu-item-description {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  font-weight: 400;
+}
+
+.menu-item-options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.menu-item-options-label {
+  color: var(--rose);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.menu-item-options-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.menu-option {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(231, 161, 170, 0.18);
+  color: #ffffff;
+  font-size: 0.85rem;
+  border: 1px solid rgba(231, 161, 170, 0.3);
+}
+
+.menu-item-price {
+  flex: 0 0 auto;
+  color: var(--rose);
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+#menu-completo .menu-card strong {
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+#menu-completo .menu-card span {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95rem;
+}
+
+#menu-completo .menu-actions {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+#menu-completo .menu-actions .button--ghost {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
 }
 
 .info-band {
@@ -595,6 +765,31 @@ h3 {
 .contact__phone--whatsapp {
   background: #25d366;
   color: #0a2e18;
+}
+
+.scroll-top {
+  position: fixed;
+  right: 22px;
+  bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.45rem;
+  box-shadow: 0 18px 42px rgba(26, 17, 21, 0.22);
+  z-index: 20;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.scroll-top:hover,
+.scroll-top:focus-visible {
+  transform: translateY(-2px);
+  background: var(--rose-dark);
 }
 
 @media (max-width: 980px) {

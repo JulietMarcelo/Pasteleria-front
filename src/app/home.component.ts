@@ -21,7 +21,8 @@ interface LocationInfo {
 
 interface MenuItem {
   name: string;
-  detail?: string;
+  description?: string;
+  options?: string[];
   price: string;
 }
 
@@ -67,8 +68,7 @@ export class HomeComponent {
   readonly featuredProducts = [
     'Pasteles personalizados',
     'Pasteles de vitrina',
-    'Postres y rebanadas',
-    'Velas y accesorios'
+    'Postres y rebanadas'
   ];
 
   readonly displayCakes = [
@@ -118,11 +118,11 @@ export class HomeComponent {
       title: 'Café y bebidas',
       items: [
         { name: 'Americano', price: '$35' },
-        { name: 'Capuchino', detail: 'Natural, vainilla francesa, caramelo o crema irlandesa', price: '$48' },
+        { name: 'Capuchino', options: ['Natural', 'Vainilla francesa', 'Caramelo', 'Crema irlandesa'], price: '$48' },
         { name: 'Café de la olla', price: '$25' },
         { name: 'Café frío', price: '$38' },
-        { name: 'Frappes', detail: 'Capuchino, Oreo, Chai, mazapán, moka o cajeta', price: '$75' },
-        { name: 'Malteadas', detail: 'Vainilla, fresa o chocolate', price: '$75' }
+        { name: 'Frappes', options: ['Capuchino', 'Oreo', 'Chai', 'Mazapán', 'Moka', 'Cajeta'], price: '$75' },
+        { name: 'Malteadas', options: ['Vainilla', 'Fresa', 'Chocolate'], price: '$75' }
       ]
     },
     {
@@ -132,18 +132,18 @@ export class HomeComponent {
         { name: 'Red Velvet', price: '$80' },
         { name: 'Tiramisú clásico', price: '$95' },
         { name: 'Tartitas de fruta', price: '$50' },
-        { name: 'Brownie con helado', detail: 'Vainilla, fresa o chocolate', price: '$95' },
+        { name: 'Brownie con helado', options: ['Vainilla', 'Fresa', 'Chocolate'], price: '$95' },
         { name: 'Fresas con crema', price: '$75' }
       ]
     },
     {
       title: 'Desayunos y snacks',
       items: [
-        { name: 'Crepa dulce', detail: 'Nutella, lechera, chocolate, fresa, plátano o zarzamora', price: '$85' },
-        { name: 'Hot Cakes', detail: 'Con toppings a elegir', price: '$95' },
-        { name: 'Chilaquiles solos', detail: 'Con huevo estrellado, cecina o pechuga', price: '$60 / $120' },
-        { name: 'Huevos al gusto', detail: 'Con frijolitos, totopos y salsa casera', price: '$78' },
-        { name: 'Boneless', detail: 'BBQ, búfalo o habanero', price: '$80 / $120' },
+        { name: 'Crepa dulce', options: ['Nutella', 'Lechera', 'Chocolate', 'Fresa', 'Plátano', 'Zarzamora'], price: '$85' },
+        { name: 'Hot Cakes', options: ['Con toppings a elegir'], price: '$95' },
+        { name: 'Chilaquiles solos', description: 'Con huevo estrellado, cecina o pechuga', price: '$60 / $120' },
+        { name: 'Huevos al gusto', description: 'Con frijolitos, totopos y salsa casera', price: '$78' },
+        { name: 'Boneless', options: ['BBQ', 'Búfalo', 'Habanero'], price: '$80 / $120' },
         { name: 'Papas a la francesa', price: '$65' }
       ]
     }

@@ -136,11 +136,17 @@
         <h3>{{ category.title }}</h3>
         <ul>
           <li *ngFor="let item of category.items">
-            <div>
+            <div class="menu-item-content">
               <strong>{{ item.name }}</strong>
-              <span *ngIf="item.detail">{{ item.detail }}</span>
+              <span *ngIf="item.description" class="menu-item-description">{{ item.description }}</span>
+              <div *ngIf="item.options" class="menu-item-options">
+                <span class="menu-item-options-label">Elige:</span>
+                <div class="menu-item-options-list">
+                  <span *ngFor="let option of item.options" class="menu-option">{{ option }}</span>
+                </div>
+              </div>
             </div>
-            <b>{{ item.price }}</b>
+            <b class="menu-item-price">{{ item.price }}</b>
           </li>
         </ul>
       </article>
@@ -188,4 +194,6 @@
       <a class="contact__phone contact__phone--light" href="tel:+527676882553">(767) 688 2553</a>
     </div>
   </section>
+
+  <a class="scroll-top" href="#inicio" aria-label="Volver al inicio">↑</a>
 </main>
