@@ -19,10 +19,15 @@ interface LocationInfo {
   mapUrl: string;
 }
 
+interface MenuOption {
+  name: string;
+  price?: string;
+}
+
 interface MenuItem {
   name: string;
   description?: string;
-  options?: string[];
+  options?: MenuOption[];
   price: string;
 }
 
@@ -45,6 +50,8 @@ interface CatalogGroup {
   styleUrls: ['./app.component.scss']
 })
 export class HomeComponent {
+  isNavOpen = false;
+
   readonly cakes: CakeSlide[] = [
     {
       title: 'Pasteles Reyes',
@@ -118,32 +125,32 @@ export class HomeComponent {
       title: 'Café y bebidas',
       items: [
         { name: 'Americano', price: '$35' },
-        { name: 'Capuchino', options: ['Natural', 'Vainilla francesa', 'Caramelo', 'Crema irlandesa'], price: '$48' },
+        { name: 'Capuchino', options: [{name: 'Natural'}, {name: 'Vainilla francesa'}, {name: 'Caramelo'}, {name: 'Crema irlandesa'}], price: '$48' },
         { name: 'Café de la olla', price: '$25' },
         { name: 'Café frío', price: '$38' },
-        { name: 'Frappes', options: ['Capuchino', 'Oreo', 'Chai', 'Mazapán', 'Moka', 'Cajeta'], price: '$75' },
-        { name: 'Malteadas', options: ['Vainilla', 'Fresa', 'Chocolate'], price: '$75' }
+        { name: 'Frappes', options: [{name: 'Capuchino'}, {name: 'Oreo'}, {name: 'Chai'}, {name: 'Mazapán'}, {name: 'Moka'}, {name: 'Cajeta'}], price: '$75' },
+        { name: 'Malteadas', options: [{name: 'Vainilla'}, {name: 'Fresa'}, {name: 'Chocolate'}], price: '$75' }
       ]
     },
     {
       title: 'Postres',
       items: [
-        { name: 'Chocolate', price: '$65' },
-        { name: 'Red Velvet', price: '$80' },
+        { name: 'Rebanada de Chocolate', price: '$65' },
+        { name: 'Rebanada de Red Velvet', price: '$80' },
         { name: 'Tiramisú clásico', price: '$95' },
         { name: 'Tartitas de fruta', price: '$50' },
-        { name: 'Brownie con helado', options: ['Vainilla', 'Fresa', 'Chocolate'], price: '$95' },
+        { name: 'Brownie con helado', options: [{name: 'Vainilla'}, {name: 'Fresa'}, {name: 'Chocolate'}], price: '$95' },
         { name: 'Fresas con crema', price: '$75' }
       ]
     },
     {
       title: 'Desayunos y snacks',
       items: [
-        { name: 'Crepa dulce', options: ['Nutella', 'Lechera', 'Chocolate', 'Fresa', 'Plátano', 'Zarzamora'], price: '$85' },
-        { name: 'Hot Cakes', options: ['Con toppings a elegir'], price: '$95' },
+        { name: 'Crepa dulce', options: [{name: 'Nutella'}, {name: 'Lechera'}, {name: 'Chocolate'}, {name: 'Fresa'}, {name: 'Plátano'}, {name: 'Zarzamora'}], price: '$85' },
+        { name: 'Hot Cakes', options: [{name: 'Con toppings a elegir'}], price: '$95' },
         { name: 'Chilaquiles solos', description: 'Con huevo estrellado, cecina o pechuga', price: '$60 / $120' },
         { name: 'Huevos al gusto', description: 'Con frijolitos, totopos y salsa casera', price: '$78' },
-        { name: 'Boneless', options: ['BBQ', 'Búfalo', 'Habanero'], price: '$80 / $120' },
+        { name: 'Boneless', options: [{name: 'BBQ'}, {name: 'Búfalo'}, {name: 'Habanero'}], price: '$80 / $120' },
         { name: 'Papas a la francesa', price: '$65' }
       ]
     }
@@ -158,12 +165,12 @@ export class HomeComponent {
     {
       title: 'Rellenos tradicionales',
       description: 'Opciones clásicas disponibles para la mayoría de pedidos.',
-      items: ['Fresa', 'Durazno', 'Chocolate']
+      items: ['Fresa', 'Durazno', 'Chocolate', 'Manzana', 'Zarzamora']
     },
     {
       title: 'Rellenos por disponibilidad',
       description: 'Consultar al cotizar porque dependen de temporada o producción.',
-      items: ['Frutos rojos', 'Crema pastelera', 'Cajeta']
+      items: ['Frutos rojos', 'Crema pastelera', 'Cajeta', 'Queso crema']
     }
   ];
 
@@ -189,5 +196,9 @@ export class HomeComponent {
 
   goToSlide(index: number): void {
     this.currentSlide = index;
+  }
+
+  toggleNav(): void {
+    this.isNavOpen = !this.isNavOpen;
   }
 }

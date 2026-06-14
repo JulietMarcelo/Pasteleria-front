@@ -1,20 +1,25 @@
 <main class="landing">
   <header class="topbar">
-    <a class="brand" href="#inicio" aria-label="Ir al inicio">
+    <a class="brand" routerLink="/" aria-label="Ir al inicio">
       <img class="brand__mark" src="assets/logo-circular-pasteles-reyes.jpg" alt="">
       <span>
         Pasteles Reyes
         <small>by Mirna Marcelo</small>
       </span>
     </a>
+    
+    <button class="nav-toggle" [class.is-active]="isNavOpen" (click)="toggleNav()" aria-label="Abrir menú">
+      <span></span>
+    </button>
 
-    <nav class="nav" aria-label="Navegación principal">
-      <a href="#pasteles">Inicio</a>
-      <a href="#catalogo">Catálogo</a>
-      <a href="#menu">Menú</a>
-      <a href="#ubicacion">Ubicación</a>
-      <a href="#contacto">Contacto</a>
+    <nav class="nav" [class.nav--open]="isNavOpen" aria-label="Navegación principal">
+      <a routerLink="/" fragment="inicio" (click)="isNavOpen = false">Inicio</a>
+      <a routerLink="/" fragment="catalogo" (click)="isNavOpen = false">Catálogo</a>
+      <a routerLink="/" fragment="menu" (click)="isNavOpen = false">Menú</a>
+      <a routerLink="/" fragment="ubicacion" (click)="isNavOpen = false">Ubicación</a>
+      <a routerLink="/" fragment="contacto" (click)="isNavOpen = false">Contacto</a>
     </nav>
+    <div class="nav-backdrop" [class.is-active]="isNavOpen" (click)="toggleNav()"></div>
   </header>
 
   <section class="hero" id="inicio">
@@ -136,17 +141,16 @@
         <h3>{{ category.title }}</h3>
         <ul>
           <li *ngFor="let item of category.items">
-            <div class="menu-item-content">
+            <div class="menu-item-info">
               <strong>{{ item.name }}</strong>
-              <span *ngIf="item.description" class="menu-item-description">{{ item.description }}</span>
+              <p *ngIf="item.description">{{ item.description }}</p>
               <div *ngIf="item.options" class="menu-item-options">
-                <span class="menu-item-options-label">Elige:</span>
-                <div class="menu-item-options-list">
-                  <span *ngFor="let option of item.options" class="menu-option">{{ option }}</span>
-                </div>
+                <span *ngFor="let option of item.options" class="menu-option-tag">{{ option.name }}</span>
               </div>
             </div>
-            <b class="menu-item-price">{{ item.price }}</b>
+            <div class="menu-item-actions">
+              <b class="menu-item-price">{{ item.price }}</b>
+            </div>
           </li>
         </ul>
       </article>
